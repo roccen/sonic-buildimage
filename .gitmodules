@@ -67,9 +67,6 @@
 [submodule "src/sonic-mgmt-common"]
 	path = src/sonic-mgmt-common
 	url = https://github.com/Azure/sonic-mgmt-common.git
-[submodule "sonic-linux-kernel"]
-	path = sonic-linux-kernel
+[submodule "src/sonic-linux-kernel"]
+	path = src/sonic-linux-kernel
 	url = https://github.com/roccen/sonic-linux-kernel.git
-[submodule "sonic-swss"]
-	path = sonic-swss
-	url = https://github.com/roccen/sonic-swss.git
