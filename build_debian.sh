@@ -31,7 +31,7 @@ set -x -e
 CONFIGURED_ARCH=$([ -f .arch ] && cat .arch || echo amd64)
 
 ## docker engine version (with platform)
-DOCKER_VERSION=5:18.09.8~3-0~debian-$IMAGE_DISTRO
+DOCKER_VERSION=5:20.10.1~3-0~debian-$IMAGE_DISTRO
 LINUX_KERNEL_VERSION=4.19.0-9-2
 
 ## Working directory to prepare the file system
@@ -581,7 +581,7 @@ sudo mksquashfs $FILESYSTEM_ROOT $FILESYSTEM_SQUASHFS -e boot -e var/lib/docker 
 
 sudo scripts/collect_host_image_version_files.sh $TARGET_PATH $FILESYSTEM_ROOT
 
-if [[ $CONFIGURED_ARCH == armhf || $CONFIGURED_ARCH == arm64 ]]; then
+if [[ $CONFIGURED_ARCH == armhf ]]; then
     # Remove qemu arm bin executable used for cross-building
     sudo rm -f $FILESYSTEM_ROOT/usr/bin/qemu*static || true
     DOCKERFS_PATH=../dockerfs/

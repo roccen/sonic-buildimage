@@ -156,7 +156,7 @@ ifeq ($(SONIC_CONFIG_USE_NATIVE_DOCKERD_FOR_BUILD), y)
     DOCKER_RUN += -v /var/run/docker.sock:/var/run/docker.sock
 endif
 
-ifneq (,$(filter $(CONFIGURED_ARCH), armhf arm64))
+ifneq (,$(filter $(CONFIGURED_ARCH), armhf))
 ifeq ($(DOCKER_DATA_ROOT_FOR_MULTIARCH),)
 	DOCKER_DATA_ROOT_FOR_MULTIARCH := /var/lib/march/docker
 endif
@@ -253,7 +253,7 @@ SONIC_BUILD_INSTRUCTION :=  make \
 .DEFAULT_GOAL :=  all
 
 %::
-ifneq (,$(filter $(CONFIGURED_ARCH), armhf arm64))
+ifneq (,$(filter $(CONFIGURED_ARCH), armhf))
 	@$(DOCKER_MULTIARCH_CHECK)
 ifneq ($(BLDENV), )
 	@$(DOCKER_SERVICE_MULTIARCH_CHECK)
@@ -328,7 +328,7 @@ reset :
 	    if [ $$ans == y ]; then
 	        echo "Resetting local repository. Please wait...";
 	        $(DOCKER_RUN) $(SLAVE_IMAGE):$(SLAVE_TAG) sudo rm -rf fsroot;
-	        if [[ "$(CONFIGURED_ARCH)" == "armhf" || "$(CONFIGURED_ARCH)" ==  "arm64" ]]; then
+	        if [[ "$(CONFIGURED_ARCH)" == "armhf" ]]; then
 	            echo "Stopping march $(CONFIGURED_ARCH) docker"
 	            sudo kill -9 `sudo cat /var/run/march/docker.pid` || true
 	            sudo rm -f /var/run/march/docker.pid || true

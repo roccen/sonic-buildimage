@@ -54,7 +54,7 @@ sudo LANG=C chroot $FILESYSTEM_ROOT mount sysfs /sys -t sysfs
 
 sudo bash -c "echo \"DOCKER_OPTS=\"--storage-driver=overlay2\"\" >> $FILESYSTEM_ROOT/etc/default/docker"
 sudo cp files/docker/docker $FILESYSTEM_ROOT/etc/init.d/
-if [[ $CONFIGURED_ARCH == armhf || $CONFIGURED_ARCH == arm64 ]]; then
+if [[ $CONFIGURED_ARCH == armhf ]]; then
     SONIC_NATIVE_DOCKERD_FOR_DOCKERFS=" -H unix:///dockerfs/var/run/docker.sock "
     SONIC_NATIVE_DOCKERD_FOR_DOCKERFS_PID="cat `pwd`/dockerfs/var/run/docker.pid"
 else
@@ -562,7 +562,7 @@ EOF
 {% endif %}
 
 ## Bind docker path
-if [[ $CONFIGURED_ARCH == armhf || $CONFIGURED_ARCH == arm64 ]]; then
+if [[ $CONFIGURED_ARCH == armhf ]]; then
     sudo mkdir -p $FILESYSTEM_ROOT/dockerfs
     sudo mount --bind dockerfs $FILESYSTEM_ROOT/dockerfs
 fi
@@ -597,7 +597,7 @@ echo "docker images pull complete"
 
 sudo umount $FILESYSTEM_ROOT/target
 sudo rm -r $FILESYSTEM_ROOT/target
-if [[ $CONFIGURED_ARCH == armhf || $CONFIGURED_ARCH == arm64 ]]; then
+if [[ $CONFIGURED_ARCH == armhf ]]; then
     sudo umount $FILESYSTEM_ROOT/dockerfs
     sudo rm -fr $FILESYSTEM_ROOT/dockerfs
     sudo kill -9 `sudo $SONIC_NATIVE_DOCKERD_FOR_DOCKERFS_PID` || true

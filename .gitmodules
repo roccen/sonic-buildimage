@@ -3,13 +3,13 @@
 	url = https://github.com/Azure/sonic-swss-common
 [submodule "sonic-linux-kernel"]
 	path = src/sonic-linux-kernel
-	url = https://github.com/Azure/sonic-linux-kernel
+	url = https://github.com/roccen/sonic-linux-kernel
 [submodule "sonic-sairedis"]
 	path = src/sonic-sairedis
 	url = https://github.com/Azure/sonic-sairedis
 [submodule "sonic-swss"]
 	path = src/sonic-swss
-	url = https://github.com/Azure/sonic-swss
+	url = https://github.com/roccen/sonic-swss
 [submodule "quagga"]
 	path = src/sonic-quagga
 	url = https://github.com/Azure/sonic-quagga
