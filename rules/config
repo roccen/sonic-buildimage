@@ -5,7 +5,7 @@
 # SONIC_CONFIG_PRINT_DEPENDENCIES - show dependencies for each invoked target.
 # Before executing rule for each target its dependencies are printed to console.
 # Uncomment next line to enable:
-# SONIC_CONFIG_PRINT_DEPENDENCIES = y
+SONIC_CONFIG_PRINT_DEPENDENCIES = y
 
 # SONIC_CONFIG_BUILD_JOBS - set number of jobs for parallel build.
 # Corresponding -j argument will be passed to make command inside docker
