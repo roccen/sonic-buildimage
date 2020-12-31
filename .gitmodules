@@ -1,9 +1,6 @@
 [submodule "sonic-swss-common"]
 	path = src/sonic-swss-common
 	url = https://github.com/Azure/sonic-swss-common
-[submodule "sonic-sairedis"]
-	path = src/sonic-sairedis
-	url = https://github.com/Azure/sonic-sairedis
 [submodule "quagga"]
 	path = src/sonic-quagga
 	url = https://github.com/Azure/sonic-quagga
@@ -73,3 +70,6 @@
 [submodule "src/sonic-swss"]
 	path = src/sonic-swss
 	url = https://github.com/roccen/sonic-swss.git
+[submodule "src/sonic-sairedis"]
+	path = src/sonic-sairedis
+	url = https://github.com/roccen/sonic-sairedis.git
