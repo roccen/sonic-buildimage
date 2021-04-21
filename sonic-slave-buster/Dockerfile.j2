@@ -45,6 +45,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
         apt-utils \
         default-jre-headless \
+	default-jdk-headless \
         openssh-server \
         curl \
         wget \
@@ -126,7 +127,6 @@ RUN apt-get update && apt-get install -y \
         python-twisted \
         phpunit \
         libbit-vector-perl \
-        openjdk-11-jdk \
         javahelper \
         maven-debian-helper \
         ant \
